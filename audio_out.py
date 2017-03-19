@@ -1,6 +1,9 @@
 import pyaudio
 import wave
 import ignore_cerr
+from os.path import join, dirname
+from watson_developer_cloud import TextToSpeechV1
+
 
 def play(filename):
 
@@ -21,5 +24,16 @@ def play(filename):
 
 	p.terminate()
 
+def make_speech(message,filename):
+
+	text_to_speech = TextToSpeechV1(
+	username='11fec8ca-d894-4ea7-a4c4-4d2a2da816c9',
+	password='qYPENLNDbaPq')
+
+	with open(filename,'wb') as audio_file:
+		audio_file.write(text_to_speech.synthesize(message,accept='audio/wav',voice="en-US_AllisonVoice"))
+	
+	play(filename)
+
 if __name__ == '__main__':
-	play("output.wav")
+	make_speech("Hey how are you","output.wav")

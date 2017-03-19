@@ -107,6 +107,8 @@
 import pyaudio
 import wave
 import ignore_cerr
+from os.path import join, dirname
+from watson_developer_cloud import SpeechToTextV1
 
 def record(filename):
 
@@ -114,7 +116,7 @@ def record(filename):
     FORMAT = pyaudio.paInt16
     CHANNELS = 2
     RATE = 44100
-    RECORD_SECONDS = 5
+    RECORD_SECONDS = 4
     WAVE_OUTPUT_FILENAME = filename
 
     p = pyaudio.PyAudio()
@@ -139,3 +141,15 @@ def record(filename):
     wf.setframerate(RATE)
     wf.writeframes(b''.join(frames))
     wf.close()
+
+def get_txt(filename):
+
+    record(filename)
+    speech_to_text = SpeechToTextV1( 
+        username='96c7b8f0-8894-4652-be04-dc665766d299', 
+        password='lJDUI0ohri6U')
+    with open(filename,'rb') as audio_file:
+        return (speech_to_text.recognize(audio_file, content_type='audio/wav')['results'][0]['alternatives'][0]['transcript'])
+
+if __name__ == '__main__':
+    print get_txt("output.wav")
