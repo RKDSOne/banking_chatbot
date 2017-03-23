@@ -1,26 +1,36 @@
 import json
-import audio_in
-import audio_out
+import os
+from lib import audio_in
+from lib import audio_out
+from lib import in_filter
+from lib import out_filter
 from watson_developer_cloud import ConversationV1
 
-def get_input(choice):
+def get_input(choice,node):
 	
 	if choice=='2': 
 		print '\nEnter Something:',
-		return raw_input()
+		inp=raw_input()
+		if node=='balance check': in_filter.acc1=inp
+		return in_filter.filter(inp,node)
 	else:
-		u_said = audio_in.get_txt('output.wav')
+		u_said = audio_in.get_txt(os.getcwd()+'/res/output.wav')
 		print 'u said: ',u_said
+		if node=='balance check': in_filter.acc1=u_said
+		u_said = in_filter.filter(u_said,node)
 		return u_said
 
 def show_output(response,choice):
 
 	print 'intent: ',response['intents']
+	print 'node: ',response['output']['nodes_visited'][0]
 	if len(response['output']['text'])>0:
-		print 'output: ',response['output']['text'][0]
+		for i in response['output']['text']:
+			print 'output: ',out_filter.filter(i,response['output']['nodes_visited'][0],in_filter.acc1)
 	
 	if choice=='1' and len(response['output']['text'])>0:
-			audio_out.make_speech(response['output']['text'][0],'output.wav')
+			for i in response['output']['text']:
+				audio_out.make_speech(out_filter.filter(i,response['output']['nodes_visited'][0],in_filter.acc1),os.getcwd()+'/res/output.wav')
 
 if __name__ == '__main__':
 
@@ -29,7 +39,7 @@ if __name__ == '__main__':
 	    password='UUULVbiGwOIM',
 	    version='2016-09-20')
 
-	workspace_id = '5bc49e8e-c02b-4261-ad34-8397ca8e8beb'
+	workspace_id = '5888d51f-cac8-4dce-8ff4-dd432cf5b3a7'
 
 	while True:
 
@@ -37,12 +47,13 @@ if __name__ == '__main__':
 		choice = raw_input()
 		if choice=='2' or choice=='1': break
 
-	user_in=get_input(choice)
+	user_in=get_input(choice,'')
 	response = conversation.message(workspace_id=workspace_id, message_input={'text': user_in})
 	show_output(response,choice)
 
 	while True:
 
-		user_in=get_input(choice)
+		user_in=get_input(choice,response['output']['nodes_visited'][0])
+		if user_in=='-program_end-': break
 		response = conversation.message(workspace_id=workspace_id, message_input={'text': user_in}, context=response['context'])
 		show_output(response,choice)
