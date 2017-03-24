@@ -16,7 +16,7 @@ A banking assistant chat bot thats works using the IBM watson service
 # Installing 
  Installing Python 2.7 -> <a href="https://www.python.org/downloads/"> Python 2.7 </a><br>
  Installing PyAudio -> <a href="https://people.csail.mit.edu/hubert/pyaudio/">PyAudio</a> <br>
- Installing cffi -> <a href="https://cffi.readthedocs.io/en/latest/installation.html/"> cffi </a>
+ Installing cffi -> <a href="https://cffi.readthedocs.io/en/latest/installation.html/"> cffi </a> <br>
  Installing Git -> <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git"> Git </a>
 
 # Features
