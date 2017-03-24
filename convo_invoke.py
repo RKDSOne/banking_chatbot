@@ -15,6 +15,7 @@ def get_input(choice,node):
 	else:
 		u_said = audio_in.get_txt(os.getcwd()+'/res/output.wav')
 		print 'u said: ',u_said
+		u_said = u_said[:-1]
 		u_said = in_filter.filter(u_said,node)
 		return u_said
 
