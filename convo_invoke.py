@@ -9,7 +9,7 @@ from watson_developer_cloud import ConversationV1
 def get_input(choice,node):
 	
 	if choice=='2': 
-		print '\nEnter Something:',
+		print '\nUser :',
 		inp=raw_input()
 		return in_filter.filter(inp,node)
 	else:
@@ -26,7 +26,7 @@ def show_output(response,choice):
 #	print 'node: ',response['output']['nodes_visited'][0]
 
 	for i in response['output']['text']:
-		print 'output: ',out_filter.filter(i,response['output']['nodes_visited'][0],in_filter.acc1)
+		print 'Bot : ',out_filter.filter(i,response['output']['nodes_visited'][0],in_filter.acc1)
 	
 	if choice=='1':
 		for i in response['output']['text']:
