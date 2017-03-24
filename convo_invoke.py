@@ -14,7 +14,7 @@ def get_input(choice,node):
 		return in_filter.filter(inp,node)
 	else:
 		u_said = audio_in.get_txt(os.getcwd()+'/res/output.wav')
-		print 'u said: ',u_said
+		print 'User : ',u_said
 		u_said = u_said[:-1]
 		u_said = in_filter.filter(u_said,node)
 		return u_said
@@ -26,7 +26,7 @@ def show_output(response,choice):
 #	print 'node: ',response['output']['nodes_visited'][0]
 
 	for i in response['output']['text']:
-		print 'Bot : ',out_filter.filter(i,response['output']['nodes_visited'][0],in_filter.acc1)
+		print 'Bot  :',out_filter.filter(i,response['output']['nodes_visited'][0],in_filter.acc1)
 	
 	if choice=='1':
 		for i in response['output']['text']:
