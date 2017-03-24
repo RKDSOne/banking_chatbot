@@ -1,7 +1,7 @@
 import json
 import os
-import lib.audio.audio_in as audio.in
-import lib.audio.audio_out as audio.out
+import lib.audio.audio_in as audio_in
+import lib.audio.audio_out as audio_out
 import lib.in_filter as in_filter
 import lib.out_filter as out_filter
 from watson_developer_cloud import ConversationV1
