@@ -14,10 +14,10 @@ A banking assistant chat bot thats works using the IBM watson service
   4. Git
 
 # Installing 
- -<a href="https://www.python.org/downloads/"> Python 2.7 </a><br>
- -<a href="https://people.csail.mit.edu/hubert/pyaudio/">PyAudio</a> <br>
- -<a href="https://cffi.readthedocs.io/en/latest/installation.html/"> cffi </a> <br>
- -<a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git"> Git </a>
+ * <a href="https://www.python.org/downloads/"> Python 2.7 </a><br>
+ * <a href="https://people.csail.mit.edu/hubert/pyaudio/">PyAudio</a> <br>
+ * <a href="https://cffi.readthedocs.io/en/latest/installation.html/"> cffi </a> <br>
+ * <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git"> Git </a>
 
 # Features
   1. Audio input enabled
