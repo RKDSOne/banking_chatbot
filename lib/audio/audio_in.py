@@ -42,4 +42,4 @@ def get_txt(filename):
         username='96c7b8f0-8894-4652-be04-dc665766d299', 
         password='lJDUI0ohri6U')
     with open(filename,'rb') as audio_file:
-        return (speech_to_text.recognize(audio_file, content_type='audio/wav')['results'][0]['alternatives'][0]['transcript'])
+        return (speech_to_text.recognize(audio_file, content_type='audio/wav',smart_formatting='true')['results'][0]['alternatives'][0]['transcript'])
