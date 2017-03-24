@@ -27,11 +27,11 @@ def filter(msg,node):
 		print '--hyphens are not allowed--'
 		return 'hey'
 
-	elif node=='invalid acc no' or node=='balance check' or node=='fund transfer' or node=='acc1 ok':
+	elif node=='acc1 not ok' or node=='acc2 not ok' or node=='invalid acc no' or node=='balance check' or node=='fund transfer' or node=='acc1 ok':
 		
-		if node=='balance check' or node=='fund transfer':
+		if node=='acc1 not ok' or node=='invalid acc no' or node=='balance check' or node=='fund transfer':
 			acc1 = msg
-		elif node=='acc1 ok':
+		elif node=='acc1 ok' or node=='acc2 not ok':
 			acc2 = msg
 
 		if validate_acc_no(msg):
