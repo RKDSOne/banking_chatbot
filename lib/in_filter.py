@@ -47,7 +47,7 @@ def filter(msg,node):
 		if validate_balance(acc1,money):
 			return '-yes-'
 		else:
-			return '-no'
+			return '-no-'
 
 	elif node=='pin ok again':
 		transfer(acc1,acc2,money)
