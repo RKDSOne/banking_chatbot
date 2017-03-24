@@ -14,13 +14,13 @@ A banking assistant chat bot thats works using the IBM watson service
   4. Git
 
 # Installing 
- Installing Python 2.7 -> <a href="https://www.python.org/downloads/"> Python 2.7 </a><br>
- Installing PyAudio -> <a href="https://people.csail.mit.edu/hubert/pyaudio/">PyAudio</a> <br>
- Installing cffi -> <a href="https://cffi.readthedocs.io/en/latest/installation.html/"> cffi </a> <br>
- Installing Git -> <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git"> Git </a>
+ - <a href="https://www.python.org/downloads/"> Python 2.7 </a><br>
+ - <a href="https://people.csail.mit.edu/hubert/pyaudio/">PyAudio</a> <br>
+ - <a href="https://cffi.readthedocs.io/en/latest/installation.html/"> cffi </a> <br>
+ - <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git"> Git </a>
 
 # Features
   1. Audio input enabled
   2. Audio output in en-US_AllisonVoice 
   3. Database in /res/database.json
-  4. help support at any step
+  4. Help support at any step
