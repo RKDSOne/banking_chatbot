@@ -1,9 +1,9 @@
 import json
 import os
-from lib import audio_in
-from lib import audio_out
-from lib import in_filter
-from lib import out_filter
+import lib.audio.audio_in
+import lib.audio.audio_out
+import lib.in_filter
+import lib.out_filter
 from watson_developer_cloud import ConversationV1
 
 def get_input(choice,node):
