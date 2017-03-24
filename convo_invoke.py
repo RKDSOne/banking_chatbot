@@ -11,12 +11,10 @@ def get_input(choice,node):
 	if choice=='2': 
 		print '\nEnter Something:',
 		inp=raw_input()
-		if node=='balance check': in_filter.acc1=inp
 		return in_filter.filter(inp,node)
 	else:
 		u_said = audio_in.get_txt(os.getcwd()+'/res/output.wav')
 		print 'u said: ',u_said
-		if node=='balance check': in_filter.acc1=u_said
 		u_said = in_filter.filter(u_said,node)
 		return u_said
 
@@ -54,6 +52,9 @@ if __name__ == '__main__':
 	while True:
 
 		user_in=get_input(choice,response['output']['nodes_visited'][0])
-		if user_in=='-program_end-': break
 		response = conversation.message(workspace_id=workspace_id, message_input={'text': user_in}, context=response['context'])
 		show_output(response,choice)
+
+		if response['output']['nodes_visited'][0] == 'end':
+			in_filter.filter('','end')
+			break

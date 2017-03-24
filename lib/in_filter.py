@@ -2,7 +2,6 @@ import json
 import db
 
 acc1='1'
-accn1='1'
 acc2='1'
 money=0
 
@@ -19,7 +18,7 @@ def transfer(acc1,acc2,money):
 
 def filter(msg,node):
 	
-	global accn1
+	global acc1
 	global acc2
 	global money
 
@@ -31,7 +30,7 @@ def filter(msg,node):
 	elif node=='invalid acc no' or node=='balance check' or node=='fund transfer' or node=='acc1 ok':
 		
 		if node=='balance check' or node=='fund transfer':
-			accn1 = msg
+			acc1 = msg
 		elif node=='acc1 ok':
 			acc2 = msg
 
@@ -45,13 +44,13 @@ def filter(msg,node):
 
 	elif node=='acc2 ok':
 		money=int(msg)
-		if validate_balance(accn1,money):
+		if validate_balance(acc1,money):
 			return '-yes-'
 		else:
 			return '-no'
 
 	elif node=='pin ok again':
-		transfer(accn1,acc2,money)
+		transfer(acc1,acc2,money)
 
 	elif node=='end':
 		db.close()
