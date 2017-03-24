@@ -24,3 +24,8 @@ A banking assistant chat bot thats works using the IBM watson service
   2. Audio output in en-US_AllisonVoice 
   3. Database in /res/database.json
   4. Help support at any step
+
+# Contributors
+  1. @gps08
+  2. @kunal15145
+  3. @kr58
