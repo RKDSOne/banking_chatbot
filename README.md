@@ -3,9 +3,9 @@
 A banking assistant chat bot thats works using the IBM watson service
 
 # Getting Started
-  `1. git clone https://github.com/gps08/banking_chatbot.git`<br>
-  `2. cd banking_chatbot`<br>
-  `3. python convo_invoke.py`
+  1. `git clone https://github.com/gps08/banking_chatbot.git`<br>
+  2. `cd banking_chatbot`<br>
+  2. `python convo_invoke.py`
   
 # Prerequisites
   1. Python 2.7
