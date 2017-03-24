@@ -25,7 +25,7 @@ def filter(msg,node):
 	if '-' in msg:
 
 		print '--hyphens are not allowed--'
-		return msg
+		return 'hey'
 
 	elif node=='invalid acc no' or node=='balance check' or node=='fund transfer' or node=='acc1 ok':
 		
