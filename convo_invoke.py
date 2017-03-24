@@ -20,15 +20,16 @@ def get_input(choice,node):
 
 def show_output(response,choice):
 
-	print 'intent: ',response['intents']
-	print 'node: ',response['output']['nodes_visited'][0]
-	if len(response['output']['text'])>0:
-		for i in response['output']['text']:
-			print 'output: ',out_filter.filter(i,response['output']['nodes_visited'][0],in_filter.acc1)
+# debug messages
+#	print 'intent: ',response['intents']
+#	print 'node: ',response['output']['nodes_visited'][0]
+
+	for i in response['output']['text']:
+		print 'output: ',out_filter.filter(i,response['output']['nodes_visited'][0],in_filter.acc1)
 	
-	if choice=='1' and len(response['output']['text'])>0:
-			for i in response['output']['text']:
-				audio_out.make_speech(out_filter.filter(i,response['output']['nodes_visited'][0],in_filter.acc1),os.getcwd()+'/res/output.wav')
+	if choice=='1':
+		for i in response['output']['text']:
+			audio_out.make_speech(out_filter.filter(i,response['output']['nodes_visited'][0],in_filter.acc1),os.getcwd()+'/res/output.wav')
 
 if __name__ == '__main__':
 

@@ -54,7 +54,6 @@ def filter(msg,node):
 
 	elif node=='end':
 		db.close()
-		return '-program_end-'
 
 	else:
 		return msg
