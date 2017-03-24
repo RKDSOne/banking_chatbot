@@ -26,5 +26,5 @@ A banking assistant chat bot thats works using the IBM watson service
   4. Help support at any step
 
 # Contributors
-  1. @<a href="https://github.com/kunal15145">kunal15145</a>
-  2. @<a href="https://github.com/kr58">kr58</a>
+  1. <a href="https://github.com/kunal15145">@kunal15145</a>
+  2. <a href="https://github.com/kr58">@kr58</a>
