@@ -1,7 +1,7 @@
 import json
 import os
-import lib.audio.audio_in
-import lib.audio.audio_out
+import lib.audio.audio_in as audio_in
+import lib.audio.audio_out as audio_out
 import lib.in_filter as in_filter
 import lib.out_filter as out_filter
 from watson_developer_cloud import ConversationV1
@@ -9,12 +9,13 @@ from watson_developer_cloud import ConversationV1
 def get_input(choice,node):
 	
 	if choice=='2': 
-		print '\nEnter Something:',
+		print '\nUser :',
 		inp=raw_input()
 		return in_filter.filter(inp,node)
 	else:
 		u_said = audio_in.get_txt(os.getcwd()+'/res/output.wav')
 		print 'u said: ',u_said
+		u_said = u_said[:-1]
 		u_said = in_filter.filter(u_said,node)
 		return u_said
 
@@ -25,7 +26,7 @@ def show_output(response,choice):
 #	print 'node: ',response['output']['nodes_visited'][0]
 
 	for i in response['output']['text']:
-		print 'output: ',out_filter.filter(i,response['output']['nodes_visited'][0],in_filter.acc1)
+		print 'Bot : ',out_filter.filter(i,response['output']['nodes_visited'][0],in_filter.acc1)
 	
 	if choice=='1':
 		for i in response['output']['text']:
