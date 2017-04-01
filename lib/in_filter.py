@@ -36,8 +36,10 @@ def filter(msg,node):
 
 		if validate_acc_no(msg):
 			return '-acc_ok-'
-		else:
+		elif msg.isdigit():
 			return '-acc_not_ok-'
+		else:
+			return msg
 
 	elif node=='ask pin' or node=='transfer possible':
 		return '-pin_ok-'
@@ -46,8 +48,10 @@ def filter(msg,node):
 		money=int(msg)
 		if validate_balance(acc1,money):
 			return '-yes-'
-		else:
+		elif msg.isdigit():
 			return '-no-'
+		else:
+			return msg
 
 	elif node=='pin ok again':
 		transfer(acc1,acc2,money)
