@@ -5,16 +5,23 @@ acc1='1'
 acc2='1'
 money=0
 
+def encrypter(acc_no):
+	hashed=''
+	enc={'0':'c','1':'d','2':'g','3':'h','4':'i','5':'j','6':'s','7':'t','8':'z','9':'a'}
+	for i in acc_no:
+		hashed+=enc[i]
+	return hashed
+
 def validate_acc_no(acc_no):
-	if acc_no in db.accounts: return True
+	if encrypter(acc_no) in db.accounts: return True
 	else: return False
 
 def validate_balance(acc1,demand):
-	return db.bank_data[acc1]>=demand
+	return db.bank_data[encrypter(acc1)]>=demand
 
 def transfer(acc1,acc2,money):
-	db.bank_data[acc1]-=money
-	db.bank_data[acc2]+=money
+	db.bank_data[encrypter(acc1)]-=money
+	db.bank_data[encrypter(acc2)]+=money
 
 def filter(msg,node):
 	
