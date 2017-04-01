@@ -13,7 +13,8 @@ def encrypter(acc_no):
 	return hashed
 
 def validate_acc_no(acc_no):
-	if encrypter(acc_no) in db.accounts: return True
+	if not acc_no.isdigit(): return False
+	elif encrypter(acc_no) in db.accounts: return True
 	else: return False
 
 def validate_balance(acc1,demand):
